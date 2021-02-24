@@ -88,33 +88,33 @@ router.route('/movies')
     .put(authJwtController.isAuthenticated, function(req, res) {
         console.log(req.body);
         res = res.status(200);
-        res.json({msg: 'movie updated'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
+        o.msg = "movie updated";
         res.json(o);
     }
     )
     .get(function (req, res) {
         console.log(req.body);
         res = res.status(200);
-        res.json({msg: 'GET movies'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
+        o.msg = "GET movies";
         res.json(o);
     }
     )
     .post(function (req, res) {
         console.log(req.body);
         res = res.status(200);
-        res.json({msg: 'movie saved'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
         var o = getJSONObjectForMovieRequirement(req);
+        o.msg = "movie saved";
         res.json(o);
     }
     );
