@@ -88,6 +88,7 @@ router.route('/movies')
     .put(authJwtController.isAuthenticated, function(req, res) {
         console.log(req.body);
         res = res.status(200);
+        res.json({msg: 'movie updated'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
@@ -98,6 +99,7 @@ router.route('/movies')
     .get(function (req, res) {
         console.log(req.body);
         res = res.status(200);
+        res.json({msg: 'GET movies'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
@@ -108,6 +110,7 @@ router.route('/movies')
     .post(function (req, res) {
         console.log(req.body);
         res = res.status(200);
+        res.json({msg: 'movie saved'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
         }
