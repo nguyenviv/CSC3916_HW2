@@ -79,9 +79,9 @@ router.route('/movies')
         res = res.status(200);
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
-            res = res.json({msg: 'movie deleted'})
         }
         var o = getJSONObjectForMovieRequirement(req);
+        o.msg = "movie deleted";
         res.json(o);
     }
     )
