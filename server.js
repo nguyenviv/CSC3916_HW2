@@ -77,9 +77,9 @@ router.route('/movies')
     .delete(authController.isAuthenticated, function(req, res) {
         console.log(req.body);
         res = res.status(200);
-        res.json({msg: 'movie deleted'})
         if (req.get('Content-Type')) {
             res = res.type(req.get('Content-Type'));
+            res = res.json({msg: 'movie deleted'})
         }
         var o = getJSONObjectForMovieRequirement(req);
         res.json(o);
